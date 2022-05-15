@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,8 @@ Route::post('login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register']);
 Route::middleware('auth:sanctum')->group( function () {
     Route::get('me', [AuthController::class, 'me']);
+
+    // Restaurant manager 
+    Route::get('restaurants', [AdminController::class, 'getAllRestaurants']);
+
 });
