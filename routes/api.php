@@ -22,10 +22,21 @@ use App\Http\Controllers\AdminController;
 
 Route::post('login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register']);
-Route::middleware('auth:sanctum')->group( function () {
-    Route::get('me', [AuthController::class, 'me']);
 
-    // Restaurant manager 
-    Route::get('restaurants', [AdminController::class, 'getAllRestaurants']);
+Route::group(['middleware' => ['api','cors']], function () {
+    Route::middleware('auth:sanctum')->group( function () {
+        Route::get('me', [AuthController::class, 'me']);
+    
+        // Restaurant manager 
+        Route::get('restaurants', [AdminController::class, 'getAllRestaurants']);
+        Route::post('new-restaurants', [AdminController::class, 'saveNewRestaurant']);
+        Route::get('delete-restaurant/{id}', [AdminController::class, 'deleteRestaurant']);
+        Route::post('update-restaurant/{id}', [AdminController::class, 'updateRestaurant']);
+        Route::get('restaurant/{id}', [AdminController::class, 'getRestaurantById']);
 
+        // Dish manager
+        Route::post('add-dish', [AdminController::class, 'addDish']);
+        Route::get('get-dishes-by-restaurant/{id}', [AdminController::class, 'getDishesByRestaurantId']);
+    });
 });
+

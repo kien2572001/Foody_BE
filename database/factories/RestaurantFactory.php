@@ -24,8 +24,8 @@ class RestaurantFactory extends Factory
             'time_to' => $this->faker->time('H:i'),
             'image' => $this->faker->imageUrl(),
             'rank' => $this->faker->randomFloat(1, 1, 5),
-            'price' => $this->faker->randomElement(['$', '$$', '$$$', '$$$$']),
-            
+            'price_from' => $this->faker->numberBetween(10000, 50000),
+            'price_to' => $this->faker->numberBetween(50000, 100000),
         ];
     }
 }

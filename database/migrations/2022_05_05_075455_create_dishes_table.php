@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('description');
             $table->biginteger('price')->unsigned();
             $table->string('image');
             $table->foreignId('restaurant_id')->constrained()->cascadeOnDelete();

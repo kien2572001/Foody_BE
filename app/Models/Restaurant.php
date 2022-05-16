@@ -16,7 +16,8 @@ class Restaurant extends Model
         'time_from',
         'time_to',
         'image',
-        'rank',
+        'price_from',
+        'price_to',
     ];
 
     public function dishes()
