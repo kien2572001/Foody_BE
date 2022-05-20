@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RestaurantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,12 @@ Route::group(['middleware' => ['api','cors']], function () {
         // Dish manager
         Route::post('add-dish', [AdminController::class, 'addDish']);
         Route::get('get-dishes-by-restaurant/{id}', [AdminController::class, 'getDishesByRestaurantId']);
+
+        // User action
+        Route::post('send-post', [UserController::class, 'sendPost']);
+
+        //Restaurant 
+        Route::get('get-all-posts/{id}', [RestaurantController::class, 'getAllPosts']);
     });
 });
 

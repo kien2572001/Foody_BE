@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('post_id')->constrained()->cascadeOnDelete();
             $table->string('url');
-            $table->tinyInteger('rank');
+            $table->string('tag');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

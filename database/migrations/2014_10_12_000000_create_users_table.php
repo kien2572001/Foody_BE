@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->string('image')->default('https://www.w3schools.com/howto/img_avatar.png');
             $table->boolean('is_admin')->default(false);
         });
     }

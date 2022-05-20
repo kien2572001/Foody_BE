@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->longText('content');
+            $table->string('footer');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('restaurant_id')->constrained()->cascadeOnDelete();
             $table->decimal('location', 5, 2);
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->decimal('quality', 5, 2);
             $table->decimal('service', 5, 2);
             $table->decimal('space', 5, 2);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -14,4 +14,8 @@ class Post extends Model
     public function imageUrl(){
         return $this->hasMany(ImageUrl::class);
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

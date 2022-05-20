@@ -20,6 +20,7 @@ return new class extends Migration
             $table->biginteger('price')->unsigned();
             $table->string('image');
             $table->foreignId('restaurant_id')->constrained()->cascadeOnDelete();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

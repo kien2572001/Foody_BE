@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('price_to')->default(0);
             $table->string('image');
             $table->decimal('rank', 5, 2)->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
